@@ -35,6 +35,7 @@ That's it!
 
 Here is the Diagram of the project's structure:
 
+http://nbviewer.jupyter.org/github/iafrohack/python_rest/blob/master/project-diagram.pdf
 
 # High-Level Details:
 
