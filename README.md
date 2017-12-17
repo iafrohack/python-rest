@@ -65,6 +65,8 @@ it sends those requests to the Data Repositories found in the Data Layer.
 the requested data. It knows how to properly validate the request before retrieving it
 from the data source.
 
+5. The Property Controller will never directly communicate with the Property Repository: Every
+Controller request will have to be handled by the Service layer. 
 
 With this structure, the separation of concerns is clearly enforced and the single responsibility
 principle is observed: Each layer is responsible of one and only one task and knows how to do it
@@ -94,8 +96,8 @@ the Property Repository instance that is passed to the Service PROVIDES the Prop
 Repository interface, the Property Service is fine with it, and can live with that.
 
 Today our data source is MongoDb database, but tomorrow it can be a POSTGRESQL datasource.
-This implementation detail is hidden from the Property Service, and it will be up to the
-Property repository to handle this change.
+This implementation detail is hidden from the Property Service, the implementation is 
+the responsibility of the Property Repository.  
 
 We are using the Python interface package - https://pypi.python.org/pypi/python-interface/1.2.0 -
 for its ease-of-use and support of our use of interfaces.
