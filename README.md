@@ -1,11 +1,11 @@
 
-#python-rest minimal design template
+# python-rest minimal design template
 
 DISCLAIMER: This is an attempt to setup a highly decoupled
 project in Python. As such, this can be found opinionated,
 consume at your own risk (and pleasure...).
 
-Goal: Design a Python project that is highly scalable,
+## Goal: Design a Python project that is highly scalable,
 extensible, maintainable, testable and flexible while
 encouraging fast development and productivity.
 
@@ -13,12 +13,12 @@ Project must also adhere to the Single Responsibility
 Principle and enforce design patterns that conduce to
 the overall project's goals.
 
-Tech Stack:
+## Tech Stack:
 
 - Python3
-- Eve Framework: http://python-eve.org/ .
+- Eve Framework: http://python-eve.org/
 
-For a quick start:
+## For a quick start:
 
 1. Setup your Linux (Ubuntu) box as found on https://github.com/iafrohack/vagrant-django-setup
 2. Then `pip install eve`
@@ -113,7 +113,17 @@ Property Service instance.
 
 Instantiated classes have no knowledge of this service, they don't even know that it exists.
 
-This is Dependency Injection at its best...
+From the previous section, we declared:
+"Today our data source is MongoDb database, but tomorrow it can be a POSTGRESQL datasource.":
+our containers are handling the exact class that the Property Service is instantiated with.
+Currently, the object that the PropertyService is instantiated with can be an instance of the PropertyRepositoryMongo that implements the PropertyRepository interface. In the future, if we
+decide to use POSTGRESQL, then we can instead instantiate ('inject') the Property Service with
+a PropertyRepositoryPostgre that also implements a PropertyRepository interface. All we have to do
+at this point, is to make sure we run all of our unit-tests and ensure none broke. Then this is the
+instance that will be used across the entire app: we don't have to chase over every place
+we were using the old Mongo-based implementation, we simply turned a switch in our container...
+
+This is Dependency Injection at its best...Such a powerful concept...
 
 We are using the dependency_injector package found here https://pypi.python.org/pypi/dependency_injector .
 
