@@ -1,5 +1,5 @@
 
-# python-rest minimal design template
+# Sample highly-decouple Python Rest API project
 
 DISCLAIMER: This is an attempt to setup a highly decoupled
 project in Python. As such, this can be found opinionated,
