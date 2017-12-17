@@ -35,7 +35,7 @@ That's it!
 
 Here is the Diagram of the project's structure:
 
-https://github.com/iafrohack/python_rest/blob/master/project-diagram.png
+https://github.com/iafrohack/python_rest/project-diagram.png
 
 # High-Level Details:
 
